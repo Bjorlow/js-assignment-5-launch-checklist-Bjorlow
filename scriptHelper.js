@@ -36,8 +36,8 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
   
     // Update the list of shuttle requirements with the pilot and co-pilot names
     list.style.visibility = "visible";
-    document.getElementById("pilotStatus").innerText = `Pilot ${pilot.value} is ready for launch`;
-    document.getElementById("copilotStatus").innerText = `Co-pilot ${coPilot.value} is ready for launch`;
+    document.getElementById("pilotStatus").innerText = `Pilot ${pilotStatus.value} is ready for launch`;
+    document.getElementById("copilotStatus").innerText = `Co-pilot ${coPilotStatus.value} is ready for launch`;
   
     // Check fuel and cargo levels for validation
     if (fuelStatus === "Not a Number" || cargoStatus === "Not a Number") {
@@ -59,9 +59,11 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
       } else {
         document.getElementById("launchStatus").innerText = "Shuttle is ready for launch";
         document.getElementById("launchStatus").style.color = "green";
-        document.getElementById("faultyItems").style.visibility = "hidden";
-      }
+        document.getElementById("faultyItems").style.visibility = "visible";
+        document.getElementById("fuelStatus").innerText = "Fuel level high enough for launch";
+        document.getElementById("cargoStatus").innerText = "Cargo mass low enough for launch";
     }
+  }
   }
 //Function to fetch planetary data from URL
   async function myFetch() {
